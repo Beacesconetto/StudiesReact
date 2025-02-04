@@ -6,11 +6,12 @@ import {
 
 interface InputProps extends InputPropsAntd {
     title?: string;
+    margin?: string;
 }
 
-const Input = ({ title, ...props }: InputProps) => {
+const Input = ({ title, margin,...props }: InputProps) => {
   return (
-    <BoxInput>
+    <BoxInput style={{margin}}>
         {/*Bota o titúlo se tiver */}
         {title && <TitleInput>{title}</TitleInput>}
         <InputAntd {...props}/>
