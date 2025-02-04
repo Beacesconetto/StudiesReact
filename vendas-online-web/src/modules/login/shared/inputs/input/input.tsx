@@ -1,18 +1,19 @@
-import { Input as InputAntd } from 'antd';
+import { Input as InputAntd, InputProps as InputPropsAntd } from 'antd';
 import { 
     BoxInput, 
     TitleInput 
 } from './input.styles';
 
-interface InputProps {
+interface InputProps extends InputPropsAntd {
     title?: string;
 }
 
-const Input = ({ title }: InputProps) => {
+const Input = ({ title, ...props }: InputProps) => {
   return (
     <BoxInput>
-        <TitleInput>{title}</TitleInput>
-        <InputAntd />
+        {/*Bota o titúlo se tiver */}
+        {title && <TitleInput>{title}</TitleInput>}
+        <InputAntd {...props}/>
     </BoxInput>   
   );
 };
